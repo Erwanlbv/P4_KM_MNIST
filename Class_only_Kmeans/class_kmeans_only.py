@@ -1,34 +1,23 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import torchvision.datasets as datasets
+
 from sklearn.cluster import KMeans
-from joblib import dump, load
+from pre_proc_programs import *
 
 
-def kmeans_only(train_dataset, train_labels, taille, min, max):
+def km_only(dataset, n_cluster, norm_bool, liss_bool, crop_bool):
 
-    train_dataset = train_dataset[:taille]
-    train_labels = train_labels[:taille]
+    # Pré-traitement
+    pre_pro_dataset = pre_pro(dataset, norm_bool, liss_bool, crop_bool)
+    pre_pro_dataset = pre_pro_dataset.reshape(len(pre_pro_dataset), -1) # Adapte le format à celui demandé par sklearn.
 
-    err = []
-    inertie = []
+    # Entrainement
+    print("KM Only - Fin du pré-traitement, début de l'entrainement..")
+    kmeans = KMeans(n_cluster).fit(pre_pro_dataset)
+    print("KM Only - Fin de l'entrainement")
 
-    for i in range(min, max):
-        print('Nombre de cluster : ' +str(i))
-        #On adapte le format à KM
-        train_dataset = train_dataset.reshape(len(train_dataset), -1)
+    return pre_pro_dataset, kmeans
 
-        # Regroupement
-        kmeans = KMeans(n_clusters=i).fit(train_dataset)
 
-        #print("Centres des clusters : ", kmeans.cluster_centers_) # À afficher au format 28, 28
-        #print("Labels : ", kmeans.labels_) #Numpy array
-        print("Nombre d'erreurs : ", np.sum(kmeans.labels_ == train_labels))
 
-        err.append(np.sum(kmeans.labels_ == train_labels) / taille * 20)
-        inertie.append(np.round(kmeans.inertia_, 3))
-
-    return err, inertie
 
 
 
