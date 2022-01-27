@@ -1,8 +1,7 @@
 import numpy as np
 
 
-def lissage(image, seuil):
-    return image * (image >= seuil)
+""" Pour la partie avec un pré-traitement supplémentaire, voir class_lect_lign colonne pour l'utilisation"""
 
 
 def lect_lignes(image):
@@ -15,6 +14,33 @@ def lect_colonnes(image):
 
 def lect_lig_et_col(image):
     return lect_lignes(image) + lect_colonnes(image) / 2
+
+
+""" Zone des pré-traitements classiques, utilisés dans toutes les études de ce TP """
+
+
+def lissage(image, seuil):
+    return image * (image >= seuil)
+
+
+def crop(image, row, column):
+    return image[row:len(image)-row, column:len(image[0])-column]
+
+
+def pre_pro(dataset, norm_bool, liss_bool, crop_bool):
+    seuil = 200
+    row_crop, col_crop = 3, 3
+
+    if liss_bool:
+        dataset = lissage(dataset, seuil)
+
+    if norm_bool:
+        dataset = dataset / 255
+
+    if crop_bool:
+        dataset = crop(dataset, row_crop, col_crop)
+
+    return dataset
 
 
 
