@@ -8,13 +8,13 @@ import matplotlib.pyplot as plt
 #kmeans = sklearn.cluster.KMeans()
 
 training_data = datasets.MNIST(
-    root='../data',
+    root='/Users/erwan/PycharmProjects/P4_Ks_MNIST/data',
     train=True,
     download=True,
 )
 
 testing_data = datasets.MNIST(
-    root='../test_data',
+    root='/Users/erwan/PycharmProjects/P4_Ks_MNIST/test_data',
     train=False,
     download=True,
 )
@@ -46,9 +46,6 @@ def display():
 
     #plt.show()
     plt.pause(1)
-
-
-#display()
 
 
 
