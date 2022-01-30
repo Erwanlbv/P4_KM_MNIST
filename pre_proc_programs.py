@@ -23,8 +23,12 @@ def lissage(image, seuil):
     return image * (image >= seuil)
 
 
-def crop(image, row, column):
-    return image[row:len(image)-row, column:len(image[0])-column]
+def crop(dataset, row, column):
+    L = []
+    for i in range(len(dataset)):
+        L.append(dataset[i, row:len(dataset[i])-row, column:len(dataset[i, 0])-column])
+        dataset[i]
+    return np.array(L)
 
 
 def pre_pro(dataset, norm_bool, liss_bool, crop_bool):

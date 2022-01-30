@@ -4,7 +4,6 @@ from torchvision.transforms import ToTensor, Lambda, Compose
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 #kmeans = sklearn.cluster.KMeans()
 
 training_data = datasets.MNIST(

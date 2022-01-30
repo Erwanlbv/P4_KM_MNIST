@@ -1,8 +1,6 @@
 import numpy as np
 from sklearn.metrics import davies_bouldin_score, silhouette_score
 
-from class_kmeans_only import km_only
-
 
 def compute_scores(dataset, km, inertia_bool, sil_bool, davies_bool):
     output = [None, None, None]
