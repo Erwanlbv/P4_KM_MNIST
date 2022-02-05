@@ -8,7 +8,7 @@ Kmeans - Training on 2 clusters without pre-processing, temps de calcul : 0.270 
 Kmeans - Training on 3 clusters without pre-processing, temps de calcul : 0.244 secondes
 Kmeans - Training on 4 clusters without pre-processing, temps de calcul : 0.230 secondes
 Kmeans - Training on 5 clusters without pre-processing, temps de calcul : 0.24 secondes
-Kmeans - Training on 6 clusters without pre-processing, temps de calcul : 0.23à secondes
+Kmeans - Training on 6 clusters without pre-processing, temps de calcul : 0.23 secondes
 Kmeans - Training on 7 clusters without pre-processing, temps de calcul : 0.229 secondes
 Kmeans - Training on 8 clusters without pre-processing, temps de calcul : 0.220 secondes
 Kmeans - Training on 9 clusters without pre-processing, temps de calcul : 0.205 secondes
@@ -88,3 +88,5 @@ Kmedoids - Training on 9 clusters with pre-processing, temps de calcul : 9.379 s
 
  Et la pas vraiment ...
 
+
+Kmedoids - Training on 2clusters without pre-processing, temps de calcul : 3.37 secondes

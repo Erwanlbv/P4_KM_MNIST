@@ -20,14 +20,18 @@ def lect_lig_et_col(image):
 
 
 def lissage(image, seuil):
-    return image * (image >= seuil)
+    return 255.0 * (image >= seuil)
+
+
+def crop_image(img, row, column):
+    return img[row:len(img) - row, column:len(img[0]) - column]
 
 
 def crop(dataset, row, column):
     L = []
     for i in range(len(dataset)):
-        L.append(dataset[i, row:len(dataset[i])-row, column:len(dataset[i, 0])-column])
-        dataset[i]
+        L.append(dataset[i, row:len(dataset[i]) - row, column:len(dataset[i, 0]) - column])
+
     return np.array(L)
 
 
